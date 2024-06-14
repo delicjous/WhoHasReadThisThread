@@ -38,8 +38,6 @@ class WhoHasReadThisThread_Api_readers extends vB_Api
 			{	
 				$avatar = $avatars[$reader['userid']] ?? [];
 				$user['avatar'] = (empty($avatar)) ? 0 : $avatar;
-				//$user['avatar']['isfullurl'] = false;
-
 				$nodeReaders[$key] = $user;
 			}
 			return $nodeReaders;
