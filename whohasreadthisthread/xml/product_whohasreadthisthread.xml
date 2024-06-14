@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<product productid="whohasreadthisthread" active="1">
+	<title><![CDATA[[CJ] Who has read this thread]]></title>
+	<description>List users who has read the thread</description>
+	<version>2.1</version>
+	<url />
+	<versioncheckurl />
+	<dependencies>
+		<dependency dependencytype="vbulletin" minversion="6.0.0" maxversion="6.9.9" />
+	</dependencies>
+	<codes>
+	</codes>
+	<templates>
+		<template name="WhoHasReadThisThread" templatetype="template" date="1718364418" username="delicjous" version="2.1"><![CDATA[<style>
+.whrtt-widget {margin-top: 15px !important;}
+.whrtt-widget .delistava {display: flex;flex-direction: column;gap: 8px;}
+.deli_threadread_list{display: flex;flex-wrap: wrap;gap: 8px;margin-top: 15px;}
+</style>
+<div class="b-module canvas-widget whrtt-widget">
+	<div class="widget-header h-clearfix">
+		<div class="module-title h-left">
+			<h3 class="main-title js-main-title hide-on-editmode">{vb:phrase WhoReadThisThread_title}</h1>
+		</div>
+		<div class="module-buttons">
+			<span class="toggle-button module-button-item collapse" title="Collapse" data-toggle-title="Expand">
+				<span class="b-icon b-icon__toggle-collapse">Collapse</span>
+			</span>
+		</div>
+	</div>
+	<div class="widget-content delistava">
+		{vb:data readers, whohasreadthisthread:readers, getThreadReader, {vb:raw page.nodeid}}
+		<div class="deli_threadread_list">
+			<vb:each from="readers" value="reader">
+				<div class="h-left">
+				{vb:set readtime, {vb:raw reader.readtime}}
+				{vb:template avatar, 
+					avataruser={vb:raw reader.avataruser}, 
+					avatar={vb:raw reader.avatar},
+					isfullurl=true,
+					avatarsize="x-small", 
+					title={vb:concat {vb:raw reader.avataruser.username}, ' - ', {vb:date {vb:raw reader.readtime}}},
+					extraCssClasses="test"}
+				</div>
+			</vb:each>
+		</div>
+	</div>
+</div>]]></template>
+	</templates>
+	<stylevardfns>
+	</stylevardfns>
+	<stylevars>
+	</stylevars>
+	<hooks>
+		<hook>
+			<hookname>conversation_before_display_controls</hookname>
+			<title>Who has read this thread</title>
+			<active>1</active>
+			<hookorder>255</hookorder>
+			<template>WhoHasReadThisThread</template>
+			<arguments><![CDATA[a:1:{s:4:"page";a:1:{s:4:"page";i:1;}}]]></arguments>
+		</hook>
+	</hooks>
+	<phrases>
+		<phrasetype name="GLOBAL" fieldname="global">
+			<phrase name="WhoReadThisThread_title" date="1718304815" username="delicjous" version="2.1"><![CDATA[Who has read this thread:]]></phrase>
+		</phrasetype>
+	</phrases>
+	<options>
+	</options>
+	<helptopics>
+	</helptopics>
+	<cronentries>
+	</cronentries>
+	<faqentries>
+	</faqentries>
+	<widgets>
+	</widgets>
+	<pagetemplates>
+	</pagetemplates>
+	<pages>
+	</pages>
+	<channels>
+	</channels>
+	<routes>
+	</routes>
+</product>
