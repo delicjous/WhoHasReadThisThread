@@ -20,7 +20,7 @@
 <div class="b-module canvas-widget whrtt-widget">
 	<div class="widget-header h-clearfix">
 		<div class="module-title h-left">
-			<h3 class="main-title js-main-title hide-on-editmode">{vb:phrase WhoReadThisThread_title}</h1>
+			<h3 class="main-title js-main-title" style="margin: 10px 10px auto;">{vb:phrase WhoReadThisThread_title}</h1>
 		</div>
 		<div class="module-buttons">
 			<span class="toggle-button module-button-item collapse" title="Collapse" data-toggle-title="Expand">
@@ -63,7 +63,7 @@
 	</hooks>
 	<phrases>
 		<phrasetype name="GLOBAL" fieldname="global">
-			<phrase name="WhoReadThisThread_title" date="1718304815" username="delicjous" version="2.1"><![CDATA[Who has read this thread:]]></phrase>
+			<phrase name="WhoReadThisThread_title" date="1718304815" username="delicjous" version="2.1"><![CDATA[Who has read this thread]]></phrase>
 		</phrasetype>
 	</phrases>
 	<options>
